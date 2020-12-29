@@ -4,7 +4,7 @@ const Item = ({ item }) => {
   return (
     <div style={{ display: 'flex', borderBottom: '1px solid #ddd', padding: '20px' }}>
       <div style={{ height: '160px', width: '160px', overflow: 'hidden', padding: '0 24px' }}>
-        <img src={ item.image } alt={ item.description } style={{ width: '100%' }} alt=""/>
+        <img src={ item.image } alt={ item.description } style={{ width: '100%' }}/>
       </div>
       <div style={{ flexGrow: '1' }}>
         <Link to={`/item/${item.id}`}>
