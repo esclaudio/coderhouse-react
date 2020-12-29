@@ -11,7 +11,7 @@ function App() {
     <div>
       <CartContext>
         <BrowserRouter>
-          <Navbar logo={logo} title="E-Commerce"/>
+          <Navbar logo={logo} title={process.env.REACT_APP_SITE_TITLE}/>
           <div className="container">
             <Switch>
               <Route exact path="/">
