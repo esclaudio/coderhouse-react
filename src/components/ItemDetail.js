@@ -18,7 +18,7 @@ const ItemDetail = ({item}) => {
       <div className="card-body">
         <div className="d-flex mb-4">
           <div style={{ maxWidth: '200px', marginRight: '20px' }}>
-            <img src={item.image} className="w-100" />
+            <img src={item.image} className="w-100" alt=""/>
           </div>
           <div>
             <h1 style={{ fontSize: '18px', fontWeight: '600', paddingBottom: '8px', margin: '0' }}>{item.description}</h1>

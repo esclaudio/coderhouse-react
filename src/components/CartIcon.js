@@ -8,7 +8,7 @@ const CartIcon = () => {
 
   return (
     <Link to="/cart" className="nav-link">
-      <img src={cart} width="24" height="24" alt="" />
+      <img src={cart} width="24" height="24" alt=""/>
       {
         context.items.length > 0
         &&
