@@ -12,7 +12,7 @@ function App() {
       <CartContext>
         <BrowserRouter>
           <Navbar logo={logo} title={process.env.REACT_APP_SITE_TITLE}/>
-          <div className="container">
+          <div className="container-fluid">
             <Switch>
               <Route exact path="/">
                 <Home/>

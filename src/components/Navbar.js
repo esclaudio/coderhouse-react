@@ -8,18 +8,12 @@ const Navbar = ({logo, title}) => {
         <img src={logo} width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy"/>
         {title}
       </Link>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div className="collapse navbar-collapse">
         <div className="navbar-nav">
-          <Link to="/category/mother" className="nav-link">Mothers</Link>
-          <Link to="/category/procesador" className="nav-link">Procesadores</Link>
-          <Link to="/category/cooler" className="nav-link">Coolers</Link>
-          <Link to="/category/ram" className="nav-link">Memorias RAM</Link>
-          <Link to="/category/hd" className="nav-link">Almacenamiento</Link>
-          <Link to="/category/video" className="nav-link">Placas de video</Link>
           <CartIcon/>
         </div>
       </div>
