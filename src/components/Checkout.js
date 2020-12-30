@@ -97,12 +97,12 @@ const Checkout = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="total">Total</label>
-        <input type="text" className="form-control-plaintext" id="total" value={'$ ' + itemsTotal.toLocaleString()} readOnly/>
+        <strong>Total</strong>
+        <div style={{fontWeight: 'bold', fontSize: '1.25rem'}}>{'$ ' + itemsTotal.toLocaleString()}</div>
       </div>
 
       <button type="button" className="btn btn-primary" onClick={handleSubmit} disabled={!isValid}>
-        Comprar
+        Realizar compra
       </button>
     </>
   )

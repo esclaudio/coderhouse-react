@@ -1,0 +1,18 @@
+nav.bg-yellow {
+  background-color: #fff159;
+
+  & .dropdown-menu {
+    background-color: #333;
+    padding: 1rem 0;
+  }
+
+  & .dropdown-item {
+    font-weight: bold;
+    color: #fff;
+    padding: 0.5rem 2rem;
+
+    &:hover {
+      background-color: #3483fa;
+    }
+  }
+}

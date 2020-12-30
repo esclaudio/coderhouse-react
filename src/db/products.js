@@ -1,56 +1,64 @@
-import { getFirestore } from './firebase'
+import { getFirestore } from "./firebase";
 
 export const getProducts = (categoryId = null) => {
   return new Promise((resolve, reject) => {
-    const db = getFirestore()
-    let query = db.collection('products')
+    const db = getFirestore();
+    let query = db.collection("products")
 
     if (categoryId) {
-      query = query.where('categoryId', '==', categoryId)
+      query = query
+        .where("categoryId", "==", categoryId)
+        .orderBy("price")
+    } else {
+      query = query
+        .orderBy('categoryId')
+        .orderBy("price")
     }
 
-    query.get()
-      .then(querySnapshot => {
+    query
+      .get()
+      .then((querySnapshot) => {
         if (querySnapshot.size === 0) {
-          resolve([])
-          return
+          resolve([]);
+          return;
         }
 
-        const products = querySnapshot.docs.map(doc => ({
+        const products = querySnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
-        }))
+          ...doc.data(),
+        }));
 
-        resolve(products)
+        resolve(products);
       })
-      .catch(error => {
-        reject(error)
-      })
-  })
-}
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
 
 export const getProduct = (id) => {
   return new Promise((resolve, reject) => {
-    const db = getFirestore()
-    const collection = db.collection('products')
-    const item = collection.doc(id)
+    const db = getFirestore();
+    const collection = db.collection("products");
+    const item = collection.doc(id);
 
-    item.get()
-      .then(doc => {
+    item
+      .get()
+      .then((doc) => {
         if (!doc.exists) {
-          reject('No se encontró el producto')
-          return
+          reject("No se encontró el producto");
+          return;
         }
 
         const product = {
           id: doc.id,
-          ...doc.data()
-        }
+          ...doc.data(),
+        };
 
-        resolve(product)
+        resolve(product);
       })
-      .catch(error => {
-        reject(error)
-      })
-  })
-}
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};

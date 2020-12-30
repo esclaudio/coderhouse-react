@@ -10,16 +10,19 @@ const CartItems = () => {
         {
           items.map((item, index) => (
             <tr key={index}>
-              <td className="text-right">
-                <strong>{item.quantity}</strong>
+              <td style={{width: '70px'}}>
+                <img src={item.product.image} alt={item.product.description} style={{maxWidth: '60px'}}/>
               </td>
               <td>
-                <p style={{ padding: '0 .5rem' }}>{item.product.description}</p>
+                <p className="pl-2">{item.product.description}</p>
                 <button type="button" className="btn btn-sm btn-link" onClick={() => deleteItem(index)}>
                   Eliminar
                 </button>
               </td>
-              <td className="text-right text-nowrap">
+              <td className="text-right" style={{width: '70px'}}>
+                x{item.quantity}
+              </td>
+              <td className="text-right text-nowrap font-weight-bold" style={{width: '100px', fontSize: '1.25rem'}}>
                 $ {item.product.price.toLocaleString()}
               </td>
             </tr>

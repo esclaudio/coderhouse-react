@@ -4,15 +4,14 @@ import Home from './pages/Home'
 import ItemDetailContainer from './pages/ItemDetailContainer'
 import Cart from './pages/Cart'
 import Navbar from './components/Navbar'
-import logo from './logo.svg'
 
 function App() {
   return (
     <div>
       <CartContext>
         <BrowserRouter>
-          <Navbar logo={logo} title={process.env.REACT_APP_SITE_TITLE}/>
-          <div className="container-fluid">
+          <Navbar logo={process.env.PUBLIC_URL + '/logo.svg'}/>
+          <div className="container">
             <Switch>
               <Route exact path="/">
                 <Home/>

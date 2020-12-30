@@ -2,22 +2,19 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../context/CartContext'
 import CartIcon from './CartIcon'
+import '../styles/navbar.scss'
 
-const Navbar = ({logo, title}) => {
+const Navbar = ({logo}) => {
   const { categories } = useContext(AppContext)
 
   return (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar fixed-top navbar-expand navbar-light bg-yellow">
       <Link to="/" className="navbar-brand">
-        <img src={logo} width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy"/>
-        {title}
+        <img src={logo} className="d-inline-block align-top" style={{height: '30px'}} alt={process.env.REACT_APP_SITE_TITLE} loading="lazy"/>
       </Link>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
-        <span className="navbar-toggler-icon"></span>
-      </button>
 
-      <div className="collapse navbar-collapse" id="navbar-content">
-        <div className="navbar-nav mr-auto">
+      <div className="collapse navbar-collapse">
+        <div className="navbar-nav">
           <div className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="/#" id="navbar-categories" role="button" data-toggle="dropdown">
               Categorías
@@ -33,9 +30,9 @@ const Navbar = ({logo, title}) => {
             </div>
           </div>
         </div>
-
-        <CartIcon/>
       </div>
+
+      <CartIcon/>
     </nav>
   )
 }

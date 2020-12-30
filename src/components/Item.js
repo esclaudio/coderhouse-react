@@ -1,19 +1,18 @@
 import { Link } from 'react-router-dom'
+import '../styles/item.scss'
 
 const Item = ({ item }) => {
   return (
-    <div style={{ display: 'flex', borderBottom: '1px solid #ddd', padding: '20px' }}>
-      <div style={{ height: '160px', width: '160px', overflow: 'hidden', padding: '0 24px' }}>
-        <img src={ item.image } alt={ item.description } style={{ width: '100%' }}/>
-      </div>
-      <div style={{ flexGrow: '1' }}>
-        <Link to={`/item/${item.id}`}>
-          <h2 style={{ marginBottom: '10px', color: '#333', fontSize: '20px', fontWeight: '300', lineHeight: '1.3' }}>
-            {item.description}
-          </h2>
+    <div className="col mb-4">
+      <div className="card card-item h-100">
+        <Link to={`/item/${item.id}`} className="stretched-link">
+          <img src={ item.image } alt={ item.description } className="card-img-top" style={{minHeight: '284px', maxHeight: '284px', objectFit: 'contain'}}/>
         </Link>
-        <div style={{ color: '#333', fontSize: '24px', fontWeight: '600', marginBottom: '8px', lineHeight: '1.25' }} >
-          $ {item.price.toLocaleString()}
+        <div className="card-body border-top">
+          <h5 className="card-title font-weight-bold">
+            $ {item.price.toLocaleString()}
+          </h5>
+          <p className="card-text">{item.description}</p>
         </div>
       </div>
     </div>

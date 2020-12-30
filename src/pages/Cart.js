@@ -32,9 +32,10 @@ const Cart = () => {
 
   return (
     <div className="row">
-      <div className="col-sm-8">
-        <h5>Productos</h5>
+      <div className="col-sm-8 mb-4">
+        <h5>Resumen</h5>
         <CartItems/>
+        <Link to="/">Seguir comprando</Link>
       </div>
       <div className="col-sm-4">
         <Checkout/>
