@@ -1,5 +1,4 @@
 import Item from './Item'
-import Loading from './Loading'
 
 const ItemList = ({ items }) => {
   if (items.length === 0) {

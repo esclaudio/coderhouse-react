@@ -9,14 +9,11 @@ const Home = () => {
   const { categoryId } = useParams();
   const { categories } = useContext(AppContext)
   const [products, setProducts] = useState([])
-  const [activeCategory, setActiveCategory] = useState();
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    setActiveCategory(
-      categories.find(category => category.slug === categoryId)
-    )
+  const category = categories.find(category => category.slug === categoryId)
 
+  useEffect(() => {
     setIsLoading(true)
     setProducts([])
 
@@ -27,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      {activeCategory && <h4>{activeCategory.description}</h4>}
+      {category && <h4>{category.description}</h4>}
       {isLoading? <Loading/>: <ItemList items={products}/>}
     </>
   )

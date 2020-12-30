@@ -19,7 +19,7 @@ const Navbar = ({logo, title}) => {
       <div className="collapse navbar-collapse" id="navbar-content">
         <div className="navbar-nav mr-auto">
           <div className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbar-categories" role="button" data-toggle="dropdown">
+            <a className="nav-link dropdown-toggle" href="/#" id="navbar-categories" role="button" data-toggle="dropdown">
               Categorías
             </a>
             <div className="dropdown-menu" aria-labelledby="navbar-categories">

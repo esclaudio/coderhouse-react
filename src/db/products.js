@@ -3,7 +3,7 @@ import { getFirestore } from './firebase'
 export const getProducts = (categoryId = null) => {
   return new Promise((resolve, reject) => {
     const db = getFirestore()
-    let query = db.collection('productos')
+    let query = db.collection('products')
 
     if (categoryId) {
       query = query.where('categoryId', '==', categoryId)
@@ -13,6 +13,7 @@ export const getProducts = (categoryId = null) => {
       .then(querySnapshot => {
         if (querySnapshot.size === 0) {
           resolve([])
+          return
         }
 
         const products = querySnapshot.docs.map(doc => ({
@@ -31,7 +32,7 @@ export const getProducts = (categoryId = null) => {
 export const getProduct = (id) => {
   return new Promise((resolve, reject) => {
     const db = getFirestore()
-    const collection = db.collection('productos')
+    const collection = db.collection('products')
     const item = collection.doc(id)
 
     item.get()
