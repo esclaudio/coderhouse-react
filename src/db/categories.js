@@ -3,9 +3,9 @@ import { getFirestore } from './firebase'
 export const getCategories = () => {
   return new Promise((resolve, reject) => {
     const db = getFirestore()
-    const collection = db.collection('categories')
+    const query = db.collection('categories').orderBy('description')
 
-    collection.get()
+    query.get()
       .then(querySnapshot => {
         if (querySnapshot.size === 0) {
           reject('No hay resultados')

@@ -1,11 +1,9 @@
 import { useContext, useState } from 'react'
 import { AppContext } from '../context/CartContext'
 import firebase from 'firebase/app'
-import 'firebase/firestore'
 
 const Checkout = () => {
-  const { items, total, checkout } = useContext(AppContext)
-
+  const { items, itemsTotal, checkout } = useContext(AppContext)
   const [errors, setErrors] = useState({})
   const [isValid, setIsValid] = useState(false)
   const [form, setForm] = useState({
@@ -67,7 +65,7 @@ const Checkout = () => {
       },
       items: orderItems,
       date: firebase.firestore.Timestamp.fromDate(new Date()),
-      total: total,
+      total: itemsTotal,
     }
 
     checkout(order)
@@ -100,7 +98,7 @@ const Checkout = () => {
 
       <div className="form-group">
         <label htmlFor="total">Total</label>
-        <input type="text" className="form-control-plaintext" id="total" value={'$ ' + total.toLocaleString()} readOnly/>
+        <input type="text" className="form-control-plaintext" id="total" value={'$ ' + itemsTotal.toLocaleString()} readOnly/>
       </div>
 
       <button type="button" className="btn btn-primary" onClick={handleSubmit} disabled={!isValid}>

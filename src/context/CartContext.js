@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
-import { getFirestore } from '../db/firebase'
+import React, { useState, useEffect } from 'react'
+import { getCategories } from '../db/categories'
+import { createOrder } from '../db/orders'
 
 export const AppContext = React.createContext()
 
 export const CartContext = ({ children }) => {
   const [items, setItems] = useState([])
   const [orderId, setOrderId] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [categories, setCategories] = useState([])
+  const [isProcessing, setIsProcessing] = useState(false)
+
+  useEffect(() => {
+    getCategories()
+      .then(categories => setCategories(categories))
+  }, [])
 
   const addItem = (product, quantity) => {
     const index = items.findIndex(item => item.product.id === product.id)
@@ -38,29 +45,30 @@ export const CartContext = ({ children }) => {
   }
 
   const checkout = (order) => {
-    const db = getFirestore()
-    const orders = db.collection('ordenes')
+    setIsProcessing(true)
 
-    setIsLoading(true)
-
-    orders.add(order)
+    createOrder(order)
       .then(({ id }) => {
         setOrderId(id)
         setItems([])
-        setIsLoading(false)
+        setIsProcessing(false)
       })
   }
 
-  const total = items.reduce((accum, item) => accum + (item.quantity * item.product.price), 0)
+  const itemsTotal = items.reduce((accum, item) => accum + (item.quantity * item.product.price), 0)
+
+  const itemsCount = items.reduce((a, b) => a + b.quantity, 0)
 
   const values = {
+    categories,
     items,
-    total,
+    itemsTotal,
+    itemsCount,
     orderId,
+    isProcessing,
     addItem,
     deleteItem,
     checkout,
-    isLoading,
   }
 
   return (

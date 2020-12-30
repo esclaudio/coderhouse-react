@@ -4,7 +4,7 @@ export const getProducts = (categoryId = null) => {
   return new Promise((resolve, reject) => {
     const db = getFirestore()
     let query = db.collection('productos')
-    
+
     if (categoryId) {
       query = query.where('categoryId', '==', categoryId)
     }
@@ -12,7 +12,7 @@ export const getProducts = (categoryId = null) => {
     query.get()
       .then(querySnapshot => {
         if (querySnapshot.size === 0) {
-          reject('No hay resultados')
+          resolve([])
         }
 
         const products = querySnapshot.docs.map(doc => ({

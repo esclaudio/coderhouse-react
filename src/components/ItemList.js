@@ -3,7 +3,11 @@ import Loading from './Loading'
 
 const ItemList = ({ items }) => {
   if (items.length === 0) {
-    return <Loading/>
+    return (
+      <div className="text-center">
+        <h4>No se encontraron productos</h4>
+      </div>
+    )
   }
 
   return (

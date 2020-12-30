@@ -1,6 +1,12 @@
+import '../styles/spinner.css'
+
 const Loading = () => {
   return (
-    <p className="text-center m-0">Cargando...</p>
+    <div className="spinner">
+      <div className="bounce1"></div>
+      <div className="bounce2"></div>
+      <div className="bounce3"></div>
+    </div>
   )
 }
 

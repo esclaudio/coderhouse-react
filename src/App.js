@@ -1,10 +1,10 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import ItemDetailContainer from './components/ItemDetailContainer'
-import Cart from './components/Cart'
-import logo from './logo.svg'
 import { CartContext } from './context/CartContext'
+import Home from './pages/Home'
+import ItemDetailContainer from './pages/ItemDetailContainer'
+import Cart from './pages/Cart'
+import Navbar from './components/Navbar'
+import logo from './logo.svg'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
                 <Home/>
               </Route>
               <Route path="/item/:productId">
-                <ItemDetailContainer />
+                <ItemDetailContainer/>
               </Route>
               <Route path="/cart">
                 <Cart/>
