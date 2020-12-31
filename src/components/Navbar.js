@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../context/CartContext'
 import CartIcon from './CartIcon'
@@ -13,21 +13,19 @@ const Navbar = ({logo}) => {
         <img src={logo} className="d-inline-block align-top" style={{height: '30px'}} alt={process.env.REACT_APP_SITE_TITLE} loading="lazy"/>
       </Link>
 
-      <div className="collapse navbar-collapse">
-        <div className="navbar-nav">
-          <div className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="/#" id="navbar-categories" role="button" data-toggle="dropdown">
-              Categorías
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbar-categories">
-              {
-                categories.map((category, index) => (
-                  <Link key={index} to={`/category/${category.slug}`} className="dropdown-item">
-                    {category.description}
-                  </Link>
-                ))
-              }
-            </div>
+      <div className="navbar-nav mr-auto">
+        <div className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="/#" role="button" data-toggle="dropdown">
+            Categorías
+          </a>
+          <div className="dropdown-menu">
+            {
+              categories.map((category, index) => (
+                <Link key={index} to={`/category/${category.slug}`} className="dropdown-item">
+                  {category.description}
+                </Link>
+              ))
+            }
           </div>
         </div>
       </div>
