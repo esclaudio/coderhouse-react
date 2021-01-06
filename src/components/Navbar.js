@@ -10,7 +10,7 @@ const Navbar = ({logo}) => {
   return (
     <nav className="navbar fixed-top navbar-expand navbar-light bg-yellow">
       <Link to="/" className="navbar-brand">
-        <img src={logo} className="d-inline-block align-top" style={{height: '30px'}} alt={process.env.REACT_APP_SITE_TITLE} loading="lazy"/>
+        <img src={logo} className="d-inline-block align-top" style={{height: '30px'}} alt="Mercado" loading="lazy"/>
       </Link>
 
       <div className="navbar-nav mr-auto">

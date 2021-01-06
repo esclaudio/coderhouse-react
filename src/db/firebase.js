@@ -2,12 +2,12 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 const app = firebase.initializeApp({
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
+  apiKey: "AIzaSyA2kLkcY8Uoe0mFiDTvla9T1tD-JDO8llo",
+  authDomain: "ecommerce-37b8a.firebaseapp.com",
+  projectId: "ecommerce-37b8a",
+  storageBucket: "ecommerce-37b8a.appspot.com",
+  messagingSenderId: "798454166202",
+  appId: "1:798454166202:web:b53309149415c9c9268883",
 })
 
 export const getFirebase = () => {
